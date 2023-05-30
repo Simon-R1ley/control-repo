@@ -18,3 +18,5 @@ forge 'https://forge.puppet.com'
 
 
 mod 'danieldreier-autosign', '0.3.0'
+
+mod 'puppetlabs-ntp', '10.0.0'
