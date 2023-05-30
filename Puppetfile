@@ -15,3 +15,7 @@ forge 'https://forge.puppet.com'
 #mod 'apache',
 #  git:    'https://github.com/puppetlabs/puppetlabs-apache',
 #  branch: 'docs_experiment'
+
+mod 'danieldreier-autosign', '0.3.0'
+mod 'puppetlabs-inifile', '6.0.0'
+mod 'puppetlabs-stdlib', '6.6.0'
