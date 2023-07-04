@@ -21,7 +21,7 @@ mod 'puppetlabs-inifile', '6.0.0'
 mod 'puppetlabs-stdlib', '6.6.0'
 mod 'puppetlabs-bootstrap', '2.1.0'
 #
- Windows modules for onboarding
+# Windows modules for onboarding
 # In order of use:
 # 1. https://forge.puppet.com/modules/dsc/securitypolicydsc/readme
 # 2. https://forge.puppet.com/modules/dsc/csecurityoptions/dependencies
