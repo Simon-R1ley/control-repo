@@ -20,7 +20,13 @@ mod 'danieldreier-autosign', '0.3.0'
 mod 'puppetlabs-inifile', '6.0.0'
 mod 'puppetlabs-stdlib', '6.6.0'
 mod 'puppetlabs-bootstrap', '2.1.0'
-# Windows modules
+#
+ Windows modules for onboarding
+# In order of use:
+# 1. https://forge.puppet.com/modules/dsc/securitypolicydsc/readme
+# 2. https://forge.puppet.com/modules/dsc/csecurityoptions/dependencies
+# 3. https://forge.puppet.com/modules/puppetlabs/acl/readme
+
 mod 'dsc-csecurityoptions', '3.1.3-0-0'
 mod 'puppetlabs-pwshlib', '0.10.3'
 mod 'puppetlabs-acl', '5.0.0'
