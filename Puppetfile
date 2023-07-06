@@ -18,7 +18,8 @@ forge 'https://forge.puppet.com'
 
 mod 'danieldreier-autosign', '0.3.0'
 mod 'puppetlabs-inifile', '6.0.0'
-mod 'puppetlabs-stdlib', '6.6.0'
+#mod 'puppetlabs-stdlib', '6.6.0' - Older vertion used for testing
+mod 'puppetlabs-stdlib', '9.2.0'
 mod 'puppetlabs-bootstrap', '2.1.0'
 #
 # Windows modules for onboarding
