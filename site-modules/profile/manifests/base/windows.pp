@@ -4,6 +4,5 @@ class base::windows {
   #user { 'Art Vandelay':
 # ensure => present,
   #}
-  notify { 'windows':
-  }
+  notify { 'windows': }
 }
