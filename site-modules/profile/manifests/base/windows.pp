@@ -12,5 +12,6 @@ class profile::base::windows {
   user {'Art Vandelay':
     ensure          => present,
     groups          => ['Administrators', 'Vandelay Industries Administrators'],
+    comment         => 'Lab use',
   }
 }
