@@ -2,7 +2,7 @@
 # Intentional space
 class role::server_baseline {
   case $facts['kernel'] {
-    'window': { 
+    'windows': { 
          include profile::base::windows
     }
     'Linux':  {
