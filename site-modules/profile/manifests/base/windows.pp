@@ -28,9 +28,9 @@ class profile::base::windows {
   permissions                => [
    { identity => 'Art Vandelay', rights => ['full'], perm_type=> 'allow', child_types => 'all', affects => 'all' },
    { identity => 'Vandelay Industries Administrators', rights => ['read','execute'], perm_type=> 'allow', child_types => 'all', affects => 'all' }
-  ],
+   ],
   owner                      => 'Art Vandelay', #Creator_Owner specific, doesn't manage unless specified
   group                      => 'Vandelay Industries Administrators', #Creator_Group specific, doesn't manage unless specified
   inherit_parent_permissions => true,
-}  
+  }  
 }
