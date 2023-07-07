@@ -9,4 +9,8 @@ class profile::base::windows {
   group { 'Vandelay Industries Administrators':
     ensure         => present,
   }
+  user {'Art Vandelay':
+    ensure          => present,
+    groups          => ['Administrators', 'Vandelay Industries Administrators'],
+  }
 }
