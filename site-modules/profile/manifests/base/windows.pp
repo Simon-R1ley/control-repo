@@ -32,5 +32,12 @@ class profile::base::windows {
   owner                      => 'Art Vandelay', #Creator_Owner specific, doesn't manage unless specified
   group                      => 'Vandelay Industries Administrators', #Creator_Group specific, doesn't manage unless specified
   inherit_parent_permissions => true,
-  }  
+  }
+  # Reg
+  registry_value { 'HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IEHarden':
+  ensure   => 'present',
+  data     => [0],
+  provider => 'registry',
+  type     => 'dword',
+  }
 }
