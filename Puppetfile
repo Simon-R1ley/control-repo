@@ -33,3 +33,7 @@ mod 'puppetlabs-pwshlib', '0.10.3'
 mod 'puppetlabs-acl', '5.0.0'
 mod 'puppet-archive', '7.0.0'
 mod 'puppetlabs-registry', '5.0.1'
+mod 'puppetlabs-chocolatey', '8.0.0'
+# Chocolatey Dependencies
+mod 'puppetlabs-powershell', '6.0.0'
+mod 'puppetlabs-ruby_task_helper', '0.6.1'
