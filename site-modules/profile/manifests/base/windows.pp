@@ -56,4 +56,8 @@ class profile::base::windows {
     group  => 0,
   }
   include chocolatey
+  package { '7zip':
+    ensure   => '23.1.0',
+    provider => 'chocolatey',
+  }
 }
