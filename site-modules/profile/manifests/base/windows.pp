@@ -9,7 +9,7 @@ class profile::base::windows {
   group { 'Vandelay Industries Administrators':
     ensure         => present,
   }
-  user {'Art Vandelay':
+  user { 'Art Vandelay':
     ensure  => present,
     groups  => ['Vandelay Industries Administrators'],
     comment => 'Lab use',
@@ -47,10 +47,13 @@ class profile::base::windows {
     data     => [0],
     provider => 'registry',
     type     => 'dword',
-  # Download using regular puppet
+  }
+  # Download using regular puppet module
   archive { 'C:\adminTools\MobaXterm_Portable_v23.2.zip':
     ensure => present,
     source => 'https://download.mobatek.net/2322023060714555/MobaXterm_Portable_v23.2.zip',
     user   => 0,
     group  => 0,
+  }
+  include chocolatey
 }
