@@ -37,3 +37,5 @@ mod 'puppetlabs-chocolatey', '8.0.0'
 # Chocolatey Dependencies
 mod 'puppetlabs-powershell', '6.0.0'
 mod 'puppetlabs-ruby_task_helper', '0.6.1'
+# IIS Module
+mod 'puppetlabs-iis', '10.0.0'
