@@ -17,8 +17,8 @@ forge 'https://forge.puppet.com'
 #  branch: 'docs_experiment'
 
 mod 'danieldreier-autosign', '0.3.0'
-mod 'puppetlabs-inifile', '6.0.0'
-mod 'puppetlabs-stdlib', '6.6.0' # - Older vertion used for testing
+# mod 'puppetlabs-inifile', '6.0.0'
+# mod 'puppetlabs-stdlib', '6.6.0' # - Older vertion used for testing
 mod 'puppetlabs-stdlib', '9.2.0'
 mod 'puppetlabs-bootstrap', '2.1.0'
 #
@@ -40,9 +40,9 @@ mod 'puppetlabs-ruby_task_helper', '0.6.1'
 # IIS Module
 mod 'puppetlabs-iis', '10.0.0'
 # Jenkins 
-mod 'puppet-jenkins', '3.3.0'
-mod 'puppetlabs-apt', '9.1.0'
-mod 'puppetlabs-java', '10.1.1'
-mod 'puppet-zypprepo', '4.0.1'
+#mod 'puppet-jenkins', '3.3.0'
+#mod 'puppetlabs-apt', '9.1.0'
+#mod 'puppetlabs-java', '10.1.1'
+#mod 'puppet-zypprepo', '4.0.1'
 # mod 'puppet-archive', '7.0.0'
-mod 'puppet-systemd', '5.1.0'
+#mod 'puppet-systemd', '5.1.0'
