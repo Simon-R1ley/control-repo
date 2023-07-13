@@ -1,4 +1,4 @@
-#@This class is used to detect the sever os type, this will be used in conjunction with other classes that are OS specific 
+# This class is used to detect the sever os type, this will be used in conjunction with other classes that are OS specific 
 # Intentional space
 class role::server_baseline {
   case $facts['kernel'] {
@@ -9,7 +9,7 @@ class role::server_baseline {
       include profile::base::linux
     }
     'JenkinsLinux': {
-      include profile::app_servers::jenkins
+      include profile::app_servers::jenkins_linux
     }
     default:  {
       fail('This OS is not supported')
