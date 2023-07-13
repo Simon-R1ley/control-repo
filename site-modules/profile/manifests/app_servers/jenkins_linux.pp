@@ -3,11 +3,12 @@ class profile::app_servers::jenkins_linux {
 # Notification for jenkins linux 
   notify { 'jenkinslinux':
   }
-  # Installs yum and open jdk 11, ensures the latest
+  # Installs yum and open jdk 11, ensures the latest - Secure by design as Java 11 is updated
+  # but will maintain the security patches
   package {['yum','java-11-openjdk']:
     ensure => latest,
   }
-  # Jenkins pkg url added to yumrepo
+  # Jenkins pkg url added to yumrepo with gpg key 
   yumrepo { 'jenkins':
     ensure   => 'present',
     baseurl  => 'http://pkg.jenkins.io/redhat-stable',
@@ -19,6 +20,7 @@ class profile::app_servers::jenkins_linux {
   # This ensures that Jenkins prerequsites are avalible prior to installing the latest version of jenkins 
   package { 'jenkins':
     ensure  => latest,
+    command => 'systemctl start jenkins',
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
   }
 }
