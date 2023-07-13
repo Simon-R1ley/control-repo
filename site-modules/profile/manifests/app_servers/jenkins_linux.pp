@@ -1,4 +1,5 @@
-class profile::app_server::jenkins {
+# Jenkins installation on linux - Tested on cent os7 - 
+class profile::app_server::jenkins_linux {
 # Notification for jenkins linux 
   notify { 'jenkinslinux':
   }
@@ -6,6 +7,7 @@ class profile::app_server::jenkins {
   package {['yum','java-11-openjdk']:
     ensure => latest,
   }
+  # Jenkins pkg url added to yumrepo
   yumrepo { 'jenkins':
     ensure   => 'present',
     baseurl  => 'http://pkg.jenkins.io/redhat-stable',
