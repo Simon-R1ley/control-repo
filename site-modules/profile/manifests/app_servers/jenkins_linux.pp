@@ -1,5 +1,5 @@
 # Jenkins installation on linux - Tested on cent os7 - 
-class profile::base::app_server::jenkins_linux {
+class profile::base::app_servers::jenkins_linux {
 # Notification for jenkins linux 
   notify { 'jenkinslinux':
   }
