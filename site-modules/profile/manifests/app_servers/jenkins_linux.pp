@@ -24,7 +24,19 @@ class profile::app_servers::jenkins_linux {
   # firewall-cmd --zone=public --add-port=8000/tcp
   package { 'jenkins':
     ensure  => latest,
-    command => 'jenkins --httpPort=8000', 'firewall-cmd --zone=public --add-service http', 'firewall-cmd --zone=public --add-port=8000/tcp',
+    command => 'jenkins --httpPort=8000',
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
+  }
+  firewalld_port { 'Open port 8000 in the public zone':
+    ensure   => present,
+    zone     => 'public',
+    port     => 8000,
+    protocol => 'tcp',
+  }
+
+  firewalld_service { 'Allow HTTP from the public zone':
+    ensure  => 'present',
+    service => 'http',
+    zone    => 'public',
   }
 }
