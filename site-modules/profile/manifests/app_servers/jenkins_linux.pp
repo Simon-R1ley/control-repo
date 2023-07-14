@@ -18,9 +18,13 @@ class profile::app_servers::jenkins_linux {
     provider => 'inifile',
   }
   # This ensures that Jenkins prerequsites are avalible prior to installing the latest version of jenkins 
+  # sudo cat /var/lib/jenkins/secrets/initialAdminPassword - possible improvement to show password
+  # Firewall change to allow port 8000
+  # firewall-cmd --zone=public --add-service http
+  # firewall-cmd --zone=public --add-port=8000/tcp
   package { 'jenkins':
     ensure  => latest,
-    command => 'systemctl start jenkins',
+    command => 'jenkins --httpPort=8000', 'firewall-cmd --zone=public --add-service http', 'firewall-cmd --zone=public --add-port=8000/tcp',
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
   }
 }
