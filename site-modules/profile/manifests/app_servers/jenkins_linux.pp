@@ -27,10 +27,15 @@ class profile::app_servers::jenkins_linux {
     command => 'jenkins --httpPort=8000',
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
   }
-  firewall { '000 accept all icmp':
-    proto  => 'icmp',
-    action => 'accept',
-  }
+#  firewall { 'Port 8000 open':
+#    proto  => 'tcp',
+#    dport  => [8000],
+#    action => 'accept',
+#  }
+
+#  exec { 'test':
+#    command => ['/bin/echo', 'hello world; rm -rf /'],
+#  }
 
   #firewalld_port { 'Open port 8000 in the public zone':
   #  ensure   => present,
