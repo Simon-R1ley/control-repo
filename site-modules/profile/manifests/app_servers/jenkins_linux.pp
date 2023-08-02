@@ -36,46 +36,20 @@ class profile::app_servers::jenkins_linux {
   service { 'firewalld':
     ensure => 'running',
     enable => true,
+    require => Package['firewalld'],
   }
 
-firewalld::custom_service { 'Jenkins-Service':
-  short       => 'Jenkins,
-  description => 'firewall port 8000 for jenkins',
-  port        => '8000/tcp',
-}
+  # File resouce
 
-firewalld::zone { 'public':
-  target => 'default',
-}
+  file { 'JenkinsPort8000':
+    path   => '/usr/lib/firewalld/services/jenkins.xml',
+    source => 'puppet:///modules/profile/jenkins.xml',
+  }
+  
+    # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
+    # Notify exec
 
-firewalld::zone::service { 'MyAppService':
-  zone    => 'public',
-  service => 'MyAppService',
-  ensure  => 'present',
-}
-
-
-
-#  firewall { 'Port 8000 open':
-#    proto  => 'tcp',
-#    dport  => [8000],
-#    action => 'accept',
-#  }
-
-#  exec { 'test':
-#    command => ['/bin/echo', 'hello world; rm -rf /'],
-#  }
-
-  #firewalld_port { 'Open port 8000 in the public zone':
-  #  ensure   => present,
-  #  zone     => 'public',
-  #  port     => 8000,
-  #  protocol => 'tcp',
-  #}
-
-  #firewalld_service { 'Allow HTTP from the public zone':
-  #  ensure  => 'present',
-  #  service => 'http',
-  #  zone    => 'public',
-  #}
+  # Excec
+    # Refresh if Only true
+    # firewall-cmd --reload
 }
