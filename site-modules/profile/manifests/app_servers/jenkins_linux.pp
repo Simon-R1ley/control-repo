@@ -47,6 +47,8 @@ class profile::app_servers::jenkins_linux {
   #Firewall port opening for port 8000 - jenkins custom port only 
   file { '/usr/lib/firewalld/services/jenkins.xml':
     source => 'puppet:///modules/profile/files/jenkins_linux.xml',
+    mode   => '0600',
+    owner  => 'root',
   }
   # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
   # Notify exec
