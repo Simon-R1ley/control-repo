@@ -1,4 +1,9 @@
 # Jenkins installation on linux - Tested on cent os7 - 
+# 
+# 
+# 
+# 
+
 class profile::app_servers::jenkins_linux {
 # Notification for jenkins linux 
   notify { 'jenkinslinux':
@@ -22,7 +27,6 @@ class profile::app_servers::jenkins_linux {
   # Firewall change to allow port 8000
   # firewall-cmd --zone=public --add-service http
   # firewall-cmd --zone=public --add-port=8000/tcp
-  
   package { 'jenkins':
     ensure  => latest,
     command => 'jenkins --httpPort=8000',
@@ -39,17 +43,15 @@ class profile::app_servers::jenkins_linux {
     require => Package['firewalld'],
   }
 
-  # File resouce
-
-  file { 'JenkinsPort8000':
-    path   => '/usr/lib/firewalld/services/jenkins.xml',
-    source => 'puppet:///modules/profile/jenkins.xml',
+# File resouce
+  #Firewall port opening for port 8000 - jenkins custom port only 
+  file { '/usr/lib/firewalld/services/jenkins.xml':
+    source => 'puppet:///modules/profile/files/jenkins.xml',
   }
-  
-    # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
-    # Notify exec
+  # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
+  # Notify exec
 
-  # Excec
-    # Refresh if Only true
-    # firewall-cmd --reload
+# Excec
+  # Refresh if Only true
+  # firewall-cmd --reload
 }
