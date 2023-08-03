@@ -45,6 +45,10 @@ class profile::app_servers::jenkins_linux {
 
 # File resouce
   #Firewall port opening for port 8000 - jenkins custom port only 
+  # Developing notes - The Puppet source - puppet:/// ... needs to be created - this is done by
+  #  editing the fileserverconfig = /etc/puppetlabs/puppet/fileserver.conf on the PE master.
+  # For more information see: https://www.puppet.com/docs/puppet/6/config_file_fileserver.html
+  # 
   file { '/usr/lib/firewalld/services/jenkins.xml':
     ensure => 'present',
     #source => "puppet:///site-modules/profile/files/jenkins.xml",
