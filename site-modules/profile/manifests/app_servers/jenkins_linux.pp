@@ -60,6 +60,7 @@ class profile::app_servers::jenkins_linux {
 
   service { 'firewalld':
     restart => '',
+  }
   # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
   # Notify exec
 
