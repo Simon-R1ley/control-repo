@@ -3,7 +3,6 @@
 # 
 # 
 # 
-
 class profile::app_servers::jenkins_linux {
 # Notification for jenkins linux 
   notify { 'jenkinslinux':
@@ -35,6 +34,7 @@ class profile::app_servers::jenkins_linux {
 
   package { 'firewalld':
     ensure => 'installed',
+    before => File['/usr/lib/firewalld/services/jenkins.xml'],
   }
 
   service { 'firewalld':
@@ -50,16 +50,12 @@ class profile::app_servers::jenkins_linux {
   # For more information see: https://www.puppet.com/docs/puppet/6/config_file_fileserver.html
   # 
   file { '/usr/lib/firewalld/services/jenkins.xml':
-    ensure => 'present',
+    ensure => present,
     #source => "puppet:///site-modules/profile/files/jenkins.xml",
-    source => "puppet:///_files/jenkins.xml",
+    source => 'puppet:///_files/jenkins.xml',
     mode   => '0600',
     owner  => 'root',
     reuire => Service['firewalld'],
-  }
-
-  service { 'firewalld':
-    restart => '',
   }
   # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
   # Notify exec
