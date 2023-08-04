@@ -55,7 +55,11 @@ class profile::app_servers::jenkins_linux {
     source => "puppet:///_files/jenkins.xml",
     mode   => '0600',
     owner  => 'root',
+    reuire => Service['firewalld'],
   }
+
+  service { 'firewalld':
+    restart => '',
   # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
   # Notify exec
 
