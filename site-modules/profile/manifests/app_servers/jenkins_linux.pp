@@ -32,7 +32,7 @@ class profile::app_servers::jenkins_linux {
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
   }
 
-  service { 'jenkins --httpPort=8000':
+  service { "jenkins --httpPort=8000":
     ensure  => 'running',
     #enable  => 'true',
     #flags   => 'jenkins --httpPort=8000',
