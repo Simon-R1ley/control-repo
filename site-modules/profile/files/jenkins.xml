@@ -2,5 +2,6 @@
 <service>
   <short>jenkins</short>
   <description>Jenkins is an open source automation server written in Java.</description>
-  <port port="8000" protocol="tcp" />
+  <port port="8000" protocol="tcp"/>
+  <destination ipv4="255.255.255.255"/>
 </service>
