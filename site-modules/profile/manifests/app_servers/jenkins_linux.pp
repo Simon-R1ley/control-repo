@@ -28,8 +28,12 @@ class profile::app_servers::jenkins_linux {
   # firewall-cmd --zone=public --add-port=8000/tcp
   package { 'jenkins':
     ensure  => latest,
-    command => 'jenkins --httpPort=8000',
+    #command => 'jenkins --httpPort=8000',
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
+  }
+
+  service { 'jenkins':
+    start => 'jenkins --httpPort=8000',
   }
 
   package { 'firewalld':
