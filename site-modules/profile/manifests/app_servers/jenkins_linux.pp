@@ -34,7 +34,7 @@ class profile::app_servers::jenkins_linux {
 
   package { 'firewalld':
     ensure => 'installed',
-    #before => File['/usr/lib/firewalld/services/jenkins.xml'],
+    before => File['/usr/lib/firewalld/services/jenkins.xml'],
   }
 
   service { 'firewalld':
@@ -51,7 +51,6 @@ class profile::app_servers::jenkins_linux {
   # 
   file { '/usr/lib/firewalld/services/jenkins.xml':
     ensure => present,
-    #source => "puppet:///site-modules/profile/files/jenkins.xml",
     source => 'puppet:///_files/jenkins.xml',
     mode   => '0600',
     owner  => 'root',
