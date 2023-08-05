@@ -33,7 +33,8 @@ class profile::app_servers::jenkins_linux {
   }
 
   service { 'jenkins':
-    start => 'jenkins --httpPort=8000',
+    start   => 'jenkins --httpPort=8000',
+    require => [Package['jenkins']],
   }
 
   package { 'firewalld':
