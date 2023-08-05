@@ -34,7 +34,7 @@ class profile::app_servers::jenkins_linux {
 
   service { 'jenkins':
     enable  => 'true',
-    start   => 'jenkins --httpPort=8000',
+    flags   => 'jenkins --httpPort=8000',
     require => [Package['jenkins']],
   }
 
