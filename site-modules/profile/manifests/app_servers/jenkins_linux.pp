@@ -32,10 +32,10 @@ class profile::app_servers::jenkins_linux {
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
   }
 
-  service { 'jenkins':
+  service { 'jenkins --httpPort=8000':
     ensure  => 'running',
-    enable  => 'true',
-    flags   => 'jenkins --httpPort=8000',
+    #enable  => 'true',
+    #flags   => 'jenkins --httpPort=8000',
     require => [Package['jenkins']],
   }
 
@@ -63,6 +63,8 @@ class profile::app_servers::jenkins_linux {
     owner  => 'root',
     require => Service['firewalld'],
   }
+
+  # Notify of PW at location here :/root/.jenkins/secrets/initialAdminPassword
   # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
   # Notify exec
 
