@@ -39,7 +39,7 @@ class profile::app_servers::jenkins_linux {
     require  => [Package['jenkins']],
   }
 
-  exec { 'Jenkins':
+  exec { 'jenkins':
     command => 'jenkins --httpPort=8000',
   }
 
