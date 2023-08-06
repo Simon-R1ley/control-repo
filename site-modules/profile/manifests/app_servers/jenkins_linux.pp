@@ -39,7 +39,7 @@ class profile::app_servers::jenkins_linux {
     require  => [Package['jenkins']],
   }
 
-  exec { 'Jenkins8000':
+  exec { 'Jenkins':
     command => 'jenkins --httpPort=8000',
   }
 
@@ -61,10 +61,10 @@ class profile::app_servers::jenkins_linux {
   # For more information see: https://www.puppet.com/docs/puppet/6/config_file_fileserver.html
   # 
   file { '/usr/lib/firewalld/services/jenkins.xml':
-    ensure => present,
-    source => 'puppet:///_files/jenkins.xml',
-    mode   => '0600',
-    owner  => 'root',
+    ensure  => present,
+    source  => 'puppet:///_files/jenkins.xml',
+    mode    => '0600',
+    owner   => 'root',
     require => Service['firewalld'],
   }
 
