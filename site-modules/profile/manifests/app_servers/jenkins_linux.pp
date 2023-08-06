@@ -40,7 +40,7 @@ class profile::app_servers::jenkins_linux {
   }
 
   exec { 'jenkins':
-    command => ['/etc/default/jenkins', '--httpPort=8000'],
+    command => ['/usr/bin/jenkins', '--httpPort=8000'],
   }
 
   package { 'firewalld':
