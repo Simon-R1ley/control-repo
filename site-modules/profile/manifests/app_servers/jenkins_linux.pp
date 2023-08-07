@@ -35,7 +35,7 @@ class profile::app_servers::jenkins_linux {
   service { 'sudo systemctl start jenkins':
     ensure   => 'running',
     #enable  => 'true',
-    manifest => '--httpPort=8000',
+    manifest => ' --httpPort=8000',
     require  => [Package['jenkins']],
   }
 
