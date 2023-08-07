@@ -41,7 +41,7 @@ class profile::app_servers::jenkins_linux {
 
   exec { 'jenkins':
     command => ['/usr/bin/jenkins', '--httpPort=8000'],
-    timeout => '40',
+    #timeout => '40',
     returns => '0',
   }
 
