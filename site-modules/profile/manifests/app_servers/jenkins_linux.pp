@@ -43,7 +43,7 @@ class profile::app_servers::jenkins_linux {
   #  command => ['/usr/bin/jenkins', '--httpPort=8000'],
   #  timeout => '40',
   #  returns => '0',
-  }
+  #}
 
   package { 'firewalld':
     ensure => 'installed',
