@@ -42,6 +42,7 @@ class profile::app_servers::jenkins_linux {
   exec { 'jenkins':
     command => ['/usr/bin/jenkins', '--httpPort=8000'],
     timeout => '0',
+    returns => '0',
   }
 
   package { 'firewalld':
