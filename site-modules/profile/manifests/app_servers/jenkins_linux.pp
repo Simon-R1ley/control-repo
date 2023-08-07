@@ -32,17 +32,17 @@ class profile::app_servers::jenkins_linux {
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
   }
 
-  service { 'jenkins':
+  service { 'systemctl start jenkins':
     ensure  => 'running',
     #enable  => 'true',
-    #manifest => '--httpPort=8000',
+    manifest => '--httpPort=8000',
     require => [Package['jenkins']],
   }
 
-  exec { 'jenkins':
-    command => ['/usr/bin/jenkins', '--httpPort=8000'],
-    timeout => '40',
-    returns => '0',
+  #exec { 'jenkins':
+  #  command => ['/usr/bin/jenkins', '--httpPort=8000'],
+  #  #timeout => '40',
+  #  returns => '0',
   }
 
   package { 'firewalld':
