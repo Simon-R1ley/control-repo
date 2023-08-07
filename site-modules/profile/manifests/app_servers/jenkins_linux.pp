@@ -39,10 +39,10 @@ class profile::app_servers::jenkins_linux {
     require => [Package['jenkins']],
   }
 
-  #exec { 'jenkins':
-  #  command => ['/usr/bin/jenkins', '--httpPort=8000'],
-  #  #timeout => '40',
-  #  returns => '0',
+  exec { 'jenkins':
+    command => ['/usr/bin/jenkins', '--httpPort=8000'],
+    timeout => '40',
+    returns => '0',
   }
 
   package { 'firewalld':
