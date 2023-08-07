@@ -32,7 +32,7 @@ class profile::app_servers::jenkins_linux {
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
   }
 
-  service { 'systemctl start jenkins':
+  service { 'sudo systemctl start jenkins':
     ensure   => 'running',
     #enable  => 'true',
     manifest => '--httpPort=8000',
