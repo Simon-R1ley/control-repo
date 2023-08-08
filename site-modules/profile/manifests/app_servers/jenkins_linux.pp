@@ -32,7 +32,7 @@ class profile::app_servers::jenkins_linux {
     require => [Package['java-11-openjdk'], Yumrepo['jenkins']],
   }
 
-  service { 'sudo systemctl start jenkins':
+  service { 'jenkins':
     ensure   => 'running',
     enable   => 'true',
     manifest => ' --httpPort=8000',
@@ -71,6 +71,9 @@ class profile::app_servers::jenkins_linux {
   }
 
   # Notify of PW at location
+  notify { 'Jenkins admin password is : sudo cat /var/lib/jenkins/secrets/initialAdminPassword':
+    #
+  }
   # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
   # Notify exec
 
