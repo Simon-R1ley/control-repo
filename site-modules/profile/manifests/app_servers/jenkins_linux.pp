@@ -38,6 +38,13 @@ class profile::app_servers::jenkins_linux {
     require => [Package['jenkins']],
   }
 
+  file { '/etc/systemd/system/jenkins.service.d/override.conf':
+    ensure  => present,
+    source  => 'puppet:///_files/override.conf',
+    mode    => '0600',
+    owner   => 'root',
+#require => Service['firewalld'],
+  }
   #exec { 'jenkins':
   #  command => ['/usr/bin/jenkins', '--httpPort=8000'],
   #  timeout => '40',
@@ -69,7 +76,7 @@ class profile::app_servers::jenkins_linux {
     require => Service['firewalld'],
   }
 
-  # Notify of PW at location
+  # Notify of PW at location  use varible!
   notify { 'Jenkins admin password is : sudo cat /var/lib/jenkins/secrets/initialAdminPassword':
     #
   }
