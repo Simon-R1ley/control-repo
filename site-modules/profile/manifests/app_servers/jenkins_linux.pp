@@ -37,27 +37,22 @@ class profile::app_servers::jenkins_linux {
     start   => 'systemctl start /usr/bin/jenkins --httpPort=8000',
     require => [Package['jenkins']],
   }
-
-  file { '/etc/systemd/system/jenkins.service.d/override.conf':
-    ensure  => present,
-    source  => 'puppet:///_files/override.conf',
-    mode    => '0600',
-    owner   => 'root',
 #require => Service['firewalld'],
+#
+# Resource Type List - Reff: https://www.puppetmodule.info/modules/puppetlabs-stdlib/4.25.1/puppet_types/file_line
+  file_line { 'JENKINS_PORT':
+    ensure => present,
+    path   => '/etc/sysconfig',
+    line   => 'JENKINS_PORT="8000"',
+    match  => 'JENKINS_PORT=',
   }
-  #exec { 'jenkins':
-  #  command => ['/usr/bin/jenkins', '--httpPort=8000'],
-  #  timeout => '40',
-  #  returns => '0',
-  #}
-
   package { 'firewalld':
     ensure => 'installed',
     before => File['/usr/lib/firewalld/services/jenkins.xml'],
   }
 
   service { 'firewalld':
-    ensure  => 'running',
+    ensure  => 'stopped',
     enable  => true,
     require => Package['firewalld'],
   }
@@ -65,7 +60,7 @@ class profile::app_servers::jenkins_linux {
 # File resouce
   #Firewall port opening for port 8000 - jenkins custom port only 
   # Developing notes - The Puppet source - puppet:/// ... needs to be created - this is done by
-  #  editing the fileserverconfig = /etc/puppetlabs/puppet/fileserver.conf on the PE master.
+  # editing the fileserverconfig = /etc/puppetlabs/puppet/fileserver.conf on the PE master.
   # For more information see: https://www.puppet.com/docs/puppet/6/config_file_fileserver.html
   # 
   file { '/usr/lib/firewalld/services/jenkins.xml':
@@ -77,13 +72,4 @@ class profile::app_servers::jenkins_linux {
   }
 
   # Notify of PW at location  use varible!
-  notify { 'Jenkins admin password is : sudo cat /var/lib/jenkins/secrets/initialAdminPassword':
-    #
-  }
-  # Source Jenking.xml - puppet:///modules/profile/jenkins.xml
-  # Notify exec
-
-# Excec
-  # Refresh if Only true
-  # firewall-cmd --reload
 }
