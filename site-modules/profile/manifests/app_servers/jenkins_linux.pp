@@ -42,7 +42,7 @@ class profile::app_servers::jenkins_linux {
 # Resource Type List - Reff: https://www.puppetmodule.info/modules/puppetlabs-stdlib/4.25.1/puppet_types/file_line
   file_line { 'JENKINS_PORT':
     ensure => present,
-    path   => '/etc/sysconfig',
+    path   => '/etc/sysconfig/jenkins',
     line   => 'JENKINS_PORT="8000"',
     match  => 'JENKINS_PORT=',
   }
