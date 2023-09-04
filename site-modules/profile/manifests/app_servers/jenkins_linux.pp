@@ -43,7 +43,7 @@ class profile::app_servers::jenkins_linux {
   file_line { 'JENKINS_PORT':
     ensure  => present,
     path    => '/etc/sysconfig/jenkins',
-    line    => 'JENKINS_PORT="8000"',
+    line    => 'JENKINS_PORT="8001"',
     match   => 'JENKINS_PORT=',
     require => Package['jenkins'],
   }
