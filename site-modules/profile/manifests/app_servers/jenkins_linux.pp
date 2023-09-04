@@ -3,8 +3,9 @@
 # 
 # 
 # 
-class profile::app_servers::jenkins_linux {
-  $jenkinsport = '8081'
+class profile::app_servers::jenkins_linux (
+  String $jenkinsport = '8080',
+){
 # Notification for jenkins linux 
   notify { 'jenkinslinux':
   }
