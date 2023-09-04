@@ -40,13 +40,11 @@ class profile::app_servers::jenkins_linux {
 #require => Service['firewalld'],
 #
 # Resource Type List - Reff: https://www.puppetmodule.info/modules/puppetlabs-stdlib/4.25.1/puppet_types/file_line
-  file_line { 'JENKINS_PORT':
-    ensure  => present,
-    path    => '/etc/sysconfig/jenkins',
-    line    => 'JENKINS_PORT="8001"',
-    match   => 'JENKINS_PORT=',
-    require => Package['jenkins'],
+  file { '/etc/systemd/system/jenkins.service.d/overide.conf':
+    ensure => file,
+    source => 'puppet:///modules/profile/files/overide.conf',
   }
+
   package { 'firewalld':
     ensure => 'installed',
     before => File['/usr/lib/firewalld/services/jenkins.xml'],
@@ -65,7 +63,7 @@ class profile::app_servers::jenkins_linux {
   # For more information see: https://www.puppet.com/docs/puppet/6/config_file_fileserver.html
   # 
   file { '/usr/lib/firewalld/services/jenkins.xml':
-    ensure  => present,
+    ensure  => file,
     source  => 'puppet:///_files/jenkins.xml',
     mode    => '0600',
     owner   => 'root',
