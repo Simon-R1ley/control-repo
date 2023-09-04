@@ -41,7 +41,7 @@ class profile::app_servers::jenkins_linux {
 # Resource Type List - Reff: https://www.puppetmodule.info/modules/puppetlabs-stdlib/4.25.1/puppet_types/file_line
   file { '/etc/systemd/system/jenkins.service.d/overide.conf':
     ensure  => file,
-    content => epp('profile/test.epp', { 'jenkinsport' => '8082' }),
+    content => epp('profile/overide.conf.epp', { 'jenkinsport' => '8082' }),
     notify  => Service['jenkins'], # Tells jenkins service a change has occured
     require => Package['jenkins'], #
   }
