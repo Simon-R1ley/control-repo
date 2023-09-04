@@ -32,18 +32,18 @@ class profile::app_servers::jenkins_linux {
   }
 
   service { 'jenkins':
-    ensure    => 'running',
-    enable    => 'true',
+    ensure => 'running',
+    enable => 'true',
 # start     => 'systemctl start /usr/bin/jenkins --httpPort=8000',
-    subscribe => File_line['JENKINS_PORT'],
   }
 #require => Service['firewalld'],
 #
 # Resource Type List - Reff: https://www.puppetmodule.info/modules/puppetlabs-stdlib/4.25.1/puppet_types/file_line
   file { '/etc/systemd/system/jenkins.service.d/overide.conf':
-    ensure => file,
-    source => 'puppet:///modules/profile/files/overide.conf',
-    notify => Service['jenkins'],
+    ensure  => file,
+    source  => 'puppet:///modules/profile/files/overide.conf',
+    notify  => Service['jenkins'], # Tells jenkins service a change has occured
+    require => Package['jenkins'], #
   }
 
   package { 'firewalld':
