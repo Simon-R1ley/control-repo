@@ -32,19 +32,20 @@ class profile::app_servers::jenkins_linux {
   }
 
   service { 'jenkins':
-    ensure  => 'running',
-    #enable  => 'true',
-    start   => 'systemctl start /usr/bin/jenkins --httpPort=8000',
-    require => [Package['jenkins']],
+    ensure    => 'running',
+    enable    => 'true',
+# start     => 'systemctl start /usr/bin/jenkins --httpPort=8000',
+    subscribe => File_line['JENKINS_PORT'],
   }
 #require => Service['firewalld'],
 #
 # Resource Type List - Reff: https://www.puppetmodule.info/modules/puppetlabs-stdlib/4.25.1/puppet_types/file_line
   file_line { 'JENKINS_PORT':
-    ensure => present,
-    path   => '/etc/sysconfig/jenkins',
-    line   => 'JENKINS_PORT="8000"',
-    match  => 'JENKINS_PORT=',
+    ensure  => present,
+    path    => '/etc/sysconfig/jenkins',
+    line    => 'JENKINS_PORT="8000"',
+    match   => 'JENKINS_PORT=',
+    require => Package['jenkins'],
   }
   package { 'firewalld':
     ensure => 'installed',
