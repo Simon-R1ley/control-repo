@@ -41,7 +41,7 @@ class profile::app_servers::jenkins_linux {
 # Resource Type List - Reff: https://www.puppetmodule.info/modules/puppetlabs-stdlib/4.25.1/puppet_types/file_line
   file { '/etc/systemd/system/jenkins.service.d/overide.conf':
     ensure  => file,
-    source  => 'puppet:///modules/profile/files/overide.conf',
+    source  => 'puppet:///_files/overide.conf',
     notify  => Service['jenkins'], # Tells jenkins service a change has occured
     require => Package['jenkins'], #
   }
