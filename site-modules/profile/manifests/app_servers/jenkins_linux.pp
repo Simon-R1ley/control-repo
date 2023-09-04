@@ -72,4 +72,9 @@ class profile::app_servers::jenkins_linux {
   }
 
   # Notify of PW at location  use varible!
+
+  file { '/tmp/test':
+    ensure  => file,
+    content => epp('profile/test.epp', { 'message' => "test message" }),
+  }
 }
