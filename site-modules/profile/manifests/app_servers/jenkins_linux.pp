@@ -43,6 +43,7 @@ class profile::app_servers::jenkins_linux {
   file { '/etc/systemd/system/jenkins.service.d/overide.conf':
     ensure => file,
     source => 'puppet:///modules/profile/files/overide.conf',
+    notify => Service['jenkins'],
   }
 
   package { 'firewalld':
