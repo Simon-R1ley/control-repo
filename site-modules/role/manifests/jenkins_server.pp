@@ -2,5 +2,6 @@
 # Intentional space
 # review roles and profiles
 class role::server_baseline {
-  include ::profile::base
+  include profile::base
+  include profile::jenkins
 }
