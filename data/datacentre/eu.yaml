@@ -1,3 +1,5 @@
 profile::app_servers::jenkins_linux::jenkinsport: '8090'
-profile::app_servers::jenkins_linux::ntp: 'europe.pool.ntp.org'
 profile::app_servers::jenkins_linux::opsuser: 'euops'
+profile::base::linux::ntpservers:
+- time3.google.com
+- time4.google.com

@@ -1,3 +1,2 @@
 ---
-profile::app_servers::jenkins_linux::ntp: 'time2.google.com'
 profile::app_servers::jenkins_linux::opsuser: 'ukops'
