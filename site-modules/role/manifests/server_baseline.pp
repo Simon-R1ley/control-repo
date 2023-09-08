@@ -10,7 +10,8 @@ class role::server_baseline {
       include profile::base::linux
     }
     'JenkinsLinux': {
-      include profile::app_servers::jenkins_linux
+#      include profile::app_servers::jenkins_linux
+    
     }
     default:  {
       fail('This OS is not supported')
