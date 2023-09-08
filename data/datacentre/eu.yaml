@@ -1,0 +1,3 @@
+profile::app_servers::jenkins_linux::jenkinsport: '8090'
+profile::app_servers::jenkins_linux::ntp: 'europe.pool.ntp.org'
+profile::app_servers::jenkins_linux::opsuser: 'euops'
