@@ -1,4 +1,8 @@
 #
-class profile::jenkins {
-  include profile::app_servers::jenkins_linux
+class profile::jenkins (
+  String $jenkinsport,
+) {
+  class { 'jenkins':
+    jenkinsport => $jenkinsport,
+  }
 }
