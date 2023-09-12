@@ -12,6 +12,7 @@ forge 'https://forge.puppet.com'
 #  git:    'https://github.com/puppetlabs/puppetlabs-apache',
 #  commit: '1b6f89afdde0df7f9433a163d5c4b5328eac5779'
 
+# Jenkins module on github
 mod 'jenkins',
   git:    'git@github.com:Simon-R1ley/jenkins.git',
   branch: 'main'

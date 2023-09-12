@@ -1,5 +1,4 @@
-profile::app_servers::jenkins_linux::jenkinsport: '8090'
-profile::app_servers::jenkins_linux::opsuser: 'euops'
+profile::jenkins::jenkinsport: '8090'
 profile::base::linux::ntpservers:
 - time3.google.com
 - time4.google.com
