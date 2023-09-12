@@ -12,7 +12,7 @@ forge 'https://forge.puppet.com'
 #  git:    'https://github.com/puppetlabs/puppetlabs-apache',
 #  commit: '1b6f89afdde0df7f9433a163d5c4b5328eac5779'
 
-# Jenkins module on github
+# Jenkins module on github - add lookup information
 mod 'jenkins',
   git:    'git@github.com:Simon-R1ley/jenkins.git',
   branch: 'main'
@@ -49,3 +49,5 @@ mod 'puppetlabs-iis', '10.0.0'
 #mod 'puppet-systemd', '5.1.0'
 mod 'puppetlabs-puppet_metrics_collector', '8.0.0'
 mod 'puppetlabs-ntp', '10.1.0'
+# SSH module
+mod 'ghoneycutt-ssh', '4.1.0'
