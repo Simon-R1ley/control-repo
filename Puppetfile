@@ -51,3 +51,5 @@ mod 'puppetlabs-puppet_metrics_collector', '8.0.0'
 mod 'puppetlabs-ntp', '10.1.0'
 # SSH module
 mod 'ghoneycutt-ssh', '4.1.0'
+# Winntp
+mod 'tse-winntp', '1.0.1'
