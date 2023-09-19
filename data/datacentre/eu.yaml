@@ -1,4 +1,4 @@
-profile::jenkins::jenkinsport: '8001'
+profile::jenkins::jenkinsport: '8000'
 profile::base::linux::ntpservers:
 - time3.google.com
 - time4.google.com
