@@ -9,4 +9,8 @@ class profile::base::linux (
   class { 'ntp':
     servers => $ntpservers,
   }
+
+  class { 'ssh' :
+    forward_x11 => 'yes',
+  }
 }
