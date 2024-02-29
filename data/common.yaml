@@ -1,2 +1,6 @@
 ---
 message: "This node is using common data"
+profile::jenkins::jenkinsport: '8081'
+profile::base::linux::ntpservers:
+- time1.google.com
+- time2.google.com
