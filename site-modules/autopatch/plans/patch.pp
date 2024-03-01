@@ -2,7 +2,7 @@
 plan autopatch::patch (
   TargetSpec $targets,
 ) {
-  $rootstatus = run_task('autopath::checkingroot', $targets)
+  $rootstatus = run_task('autopatch::checkingroot', $targets)
 
   if $rootstatus != 0 {
     fail_plan('Root partition is full')
