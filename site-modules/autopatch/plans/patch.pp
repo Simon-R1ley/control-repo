@@ -4,13 +4,13 @@ plan autopatch::patch (
 ) {
   $rootstatus = run_task('autopatch::checkingroot', $targets)
 
-  if $rootstatus != '0' {
+  if $rootstatus != 0 {
     fail_plan('Root partition is full')
   }
 
   $patchstatus = run_task('autopatch::patch', $targets)
 
-  if $patchstatus != '0' {
+  if $patchstatus != 0 {
     fail_plan('patching failed')
   }
 }
