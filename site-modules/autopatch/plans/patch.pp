@@ -4,7 +4,7 @@ plan autopatch::patch (
 ) {
   $rootstatus = run_task('autopatch::checkingroot', $targets)
 
-  if $rootstatus != Interger(0) {
+  if $rootstatus != Integer('0') {
     fail_plan('Root partition is full')
   }
 
