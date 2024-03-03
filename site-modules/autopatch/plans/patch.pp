@@ -18,7 +18,7 @@ plan autopatch::patch (
   # Continue with patching logic
   $patchstatus = run_task('autopatch::patch', $targets)
 
-  if $patchstatus != 0 {
+  if $patchstatus == 0 {
     fail_plan('patching failed')
   }
 }
